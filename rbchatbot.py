@@ -1,6 +1,6 @@
 import random
 
-intents = "hello/goodbye".split("/")
+intents = "hello/goodbye/confused".split("/")
 hello = "hello/hi/heya/hiya".split("/")
 goodbye = "goodbye/bye/ciao/see you/go away".split("/")
 confused = "what do you mean?/???/i dont get it?/huh?".split("/")
