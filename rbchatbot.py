@@ -1,4 +1,5 @@
 import random
+import difflib
 
 intents = {"hi": "hello/hi/heya/hiya/howdy/heyho/whats up?/how are you?".split("/"),
     "bye":"goodbye/bye/bye bye/ciao/see you/laters/adios".split("/"),
@@ -18,9 +19,13 @@ intent = "hi there"
 print(intent)
 while intent != "bye":
     phrase = input("> ")
-    if phrase in known_phrases:
+    if phrase in known_phrases: #recognised phrase detected
         intent = known_phrases[phrase]
-    else:
-        intent = "unknown phrase"
+    else: #unrecognised phrase detected
+        phrase = difflib.get_close_matches(phrase,list(known_phrases.keys()))
+        if len(phrase) > 0: #however, there is a similar phrase which i know
+            intent = known_phrases[phrase[0]]
+        else: #no idea
+            intent = "unknown phrase"
     reply = random.choice(intents[responses[intent]])
     print(reply)
