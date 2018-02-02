@@ -11,6 +11,7 @@ responses = {"hi":"hi",
     "bye":"bye",
     "rude":"angry",
     "angry":"rude",
+    "confused":"rude",
     "unknown phrase":"confused"}
 
 known_phrases = {phrase:intent for intent in intents.keys() for phrase in intents[intent]}
